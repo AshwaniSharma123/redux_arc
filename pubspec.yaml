@@ -43,6 +43,10 @@ dependencies:
   flutter_device_type: 0.2.0
    #to get device token
   firebase_messaging: ^6.0.9
+    #internetConnection
+  connectivity: ^0.4.3+2
+  #size configuration
+  flutter_screenutil: ^0.7.0
 
 
 dev_dependencies:
