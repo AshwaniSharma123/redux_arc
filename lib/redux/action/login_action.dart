@@ -1,4 +1,4 @@
 class LoginLoaderAction {
-  bool loader;
-  LoginLoaderAction(this.loader);
+  bool loginLloader;
+  LoginLoaderAction(this.loginLloader);
 }

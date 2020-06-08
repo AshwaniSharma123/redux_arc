@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 @immutable
 class AppState {
 
-final bool loader;
+final bool loginLoader;
 
 const AppState({
-  this.loader,
+  this.loginLoader,
 });
 }
