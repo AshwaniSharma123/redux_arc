@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_strucuture/redux/appstate.dart';
 import 'package:redux_strucuture/ui/loginScreen/login.dart';
+import 'package:redux_strucuture/ui/loginScreen/sucessful.dart';
 import 'package:redux_strucuture/utils/color/appColor.dart';
 import 'package:redux_strucuture/utils/language/language_application.dart';
 import 'package:redux_strucuture/utils/language/localization_delegate.dart';
@@ -80,9 +81,13 @@ class _MyAppState extends State<Application> {
       home: LoginScreen(),
       //list all routes to be used in app
       routes: <String, WidgetBuilder>{
-        Routes.loginScreen: (context) {
+        // Routes.loginScreen: (context) {
+        //   //Sign In Page
+        //   return LoginScreen();
+        // },
+        Routes.successful: (context) {
           //Sign In Page
-          return LoginScreen();
+          return Successful();
         },
       },
     );

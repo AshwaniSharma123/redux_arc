@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_strucuture/redux/appstate.dart';
+import 'package:redux_strucuture/redux/middleware/middleware.dart';
 import 'package:redux_strucuture/redux/reducer/app_reducer.dart';
 import 'package:redux_strucuture/utils/color/appColor.dart';
 import 'package:redux_strucuture/utils/database/pref_singleton.dart';
@@ -23,12 +24,14 @@ void main() async {
 
   //add redux store provider function at app init
   final store = Store<AppState>(appReducer,
-      initialState: AppState(loginLoader : false), //initialize value if you want!!
-      // middleware: createAppMiddleware(),  //custom middleware function initialized
+      initialState: AppState(loginLoader : false,)
+      ,
+       //initialize value if you want!!
+      middleware: createAppMiddleware(),  //custom middleware function initialized
   );
 
   runApp(StoreProvider(
-      store: store, child: Application(store))
+      store: store, child: Application(store),),
   ); //run main function
 }
 

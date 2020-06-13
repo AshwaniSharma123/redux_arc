@@ -11,4 +11,5 @@ class Keys {
 //define all classes routes/screens here......
 class Routes {
   static final loginScreen                 = "/LoginScreen";
+  static final successful                  = "/Successful";
 }
