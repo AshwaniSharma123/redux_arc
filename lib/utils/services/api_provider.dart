@@ -55,17 +55,14 @@ class ApiProvider {
 
         return _loginResponse;
       } else if (response.statusCode == 403) {
-        print("c");
         store.dispatch(LoginLoaderAction(false));
         return null;
       } else {
-           print("jgfjbkbjgkjgnkgj");
         store.dispatch(LoginLoaderAction(false));
         FlutterToast.showToastCenter("Invalid email/password");
         return null;
       }
     } catch (e) {
-      print(e +"fskjngjn ");
       store.dispatch(LoginLoaderAction(false));
       return null;
     }
