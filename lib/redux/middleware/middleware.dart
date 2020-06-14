@@ -36,7 +36,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
   SharedPreferences _prefs = PrefsSingleton.prefs;
   if(conn == "Mobile" || conn == "Wi-Fi"){
     LoginResponse getResponse =
-    await ApiProvider().signInApi(store, action.loginModel,_prefs.getString(PreferenceNames.language));
+    await ApiProvider().signInApi(store, action.loginModel);
 
     if(getResponse != null){
       if(getResponse.success == false){
@@ -49,7 +49,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
           await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
           await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
           await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-          await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+          // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
           await _prefs.setString(PreferenceNames.swimmerCount, "true");
 
           Keys.navKey.currentState.pushNamedAndRemoveUntil(
@@ -59,7 +59,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
             print("navigate swimmer class");
             await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
             await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
-            await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+            // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
             await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
             await _prefs.setString(PreferenceNames.swimmerCount, null);
 
@@ -81,7 +81,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
             await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
             await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
             await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-            await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+            // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
             await _prefs.setString(PreferenceNames.swimmerCount, "true");
 
             Keys.navKey.currentState.pushNamedAndRemoveUntil(
@@ -95,7 +95,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
           await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
           await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
           await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-          await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+          // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
           await _prefs.setString(PreferenceNames.swimmerCount, "true");
 
           Keys.navKey.currentState.pushNamedAndRemoveUntil(

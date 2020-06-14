@@ -34,7 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     //  getDeviceToken();
-     // TODO: implement initState
     super.initState();
   }
 
@@ -64,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: AppColors.colorBlue,
                         child: Stack(
                           children: <Widget>[
-                            card(reduxSetup)
+                            card(reduxSetup),
                           ],
                         ),
                       ),

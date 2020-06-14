@@ -24,12 +24,11 @@ class ApiProvider {
     return _apiProvider;
   }
 
-
-
   //-------------------------------------------Sign In Api------------------------------------//
   Future<LoginResponse> signInApi(Store<AppState> store,
-      LoginModel model, String language) async {
+      LoginModel model) async {
     Map<String, String> header = new Map();
+
     header["content-type"] = "application/x-www-form-urlencoded";
 
     store.dispatch(LoginLoaderAction(true));
@@ -43,7 +42,6 @@ class ApiProvider {
             "password": model.password,
             "device_type": GetDeviceType.getDeviceType(),
             "device_token":model.deviceId??'',
-            "language":language
           },
           headers: header);
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -67,5 +65,4 @@ class ApiProvider {
       return null;
     }
   }
-
 }
