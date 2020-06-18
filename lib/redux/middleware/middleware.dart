@@ -54,60 +54,60 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
 
           Keys.navKey.currentState.pushNamedAndRemoveUntil(
               Routes.successful, (Route<dynamic> route) => false);
-          if(getResponse.data.swimmerCount == 0){
-            //navigate to add swimmer class
-            print("navigate swimmer class");
-            await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
-            await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
-            // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
-            await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-            await _prefs.setString(PreferenceNames.swimmerCount, null);
+          // if(getResponse.data.swimmerCount == 0){
+          //   //navigate to add swimmer class
+          //   print("navigate swimmer class");
+          //   await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
+          //   await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
+          //   // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+          //   await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
+          //   await _prefs.setString(PreferenceNames.swimmerCount, null);
 
-            if(getResponse.data.otpVerified == "0"){                  
-              FlutterToast.showToastCenter("Verify OTP first....");
-              await _prefs.setString(PreferenceNames.otp, "0");
-              Keys.navKey.currentState.pushNamedAndRemoveUntil(
-                  Routes.successful, (Route<dynamic> route) => false);
-            }else {
-              await _prefs.setString(PreferenceNames.otp, "1");
-           FlutterToast.showToastCenter("Add swimmers....");
-              Keys.navKey.currentState.pushNamedAndRemoveUntil(
-                  Routes.successful, (Route<dynamic> route) => false);
-            }
-          }
-          else{
-            FlutterToast.showToastCenter("Logged in successfully...");
-            await _prefs.setString(PreferenceNames.otp, "1");
-            await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
-            await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
-            await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-            // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
-            await _prefs.setString(PreferenceNames.swimmerCount, "true");
+          //   if(getResponse.data.otpVerified == "0"){                  
+          //     FlutterToast.showToastCenter("Verify OTP first....");
+          //     await _prefs.setString(PreferenceNames.otp, "0");
+          //     Keys.navKey.currentState.pushNamedAndRemoveUntil(
+          //         Routes.successful, (Route<dynamic> route) => false);
+          //   }else {
+          //     await _prefs.setString(PreferenceNames.otp, "1");
+          //  FlutterToast.showToastCenter("Add swimmers....");
+          //     Keys.navKey.currentState.pushNamedAndRemoveUntil(
+          //         Routes.successful, (Route<dynamic> route) => false);
+          //   }
+          // }
+          // else{
+          //   FlutterToast.showToastCenter("Logged in successfully...");
+          //   await _prefs.setString(PreferenceNames.otp, "1");
+          //   await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
+          //   await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
+          //   await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
+          //   // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+          //   await _prefs.setString(PreferenceNames.swimmerCount, "true");
 
-            Keys.navKey.currentState.pushNamedAndRemoveUntil(
-                Routes.successful, (Route<dynamic> route) => false);
-          }
+          //   Keys.navKey.currentState.pushNamedAndRemoveUntil(
+          //       Routes.successful, (Route<dynamic> route) => false);
+          // }
         }
-        else{
-          // guardian
-          FlutterToast.showToastCenter("Logged in successfully...");
-          await _prefs.setString(PreferenceNames.otp, "1");
-          await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
-          await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
-          await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
-          // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
-          await _prefs.setString(PreferenceNames.swimmerCount, "true");
+        // else{
+        //   // guardian
+        //   FlutterToast.showToastCenter("Logged in successfully...");
+        //   await _prefs.setString(PreferenceNames.otp, "1");
+        //   await _prefs.setString(PreferenceNames.token, getResponse.data.apiToken);
+        //   await _prefs.setString(PreferenceNames.userId, getResponse.data.userId.toString());
+        //   await _prefs.setString(PreferenceNames.notifications, getResponse.data.notifications.toString());
+        //   // await _prefs.setString(PreferenceNames.language, getResponse.data.language.toString());
+        //   await _prefs.setString(PreferenceNames.swimmerCount, "true");
 
-          Keys.navKey.currentState.pushNamedAndRemoveUntil(
-              Routes.successful, (Route<dynamic> route) => false);
-        }
+        //   Keys.navKey.currentState.pushNamedAndRemoveUntil(
+        //       Routes.successful, (Route<dynamic> route) => false);
+        // }
       }else{
         if(getResponse.message != null){
           FlutterToast.showToastCenter(getResponse.message);
         }
-        else{
+        // else{
 
-        }
+        // }
       }
     }
   }else{
@@ -115,6 +115,7 @@ void _logInAction(Store<AppState> store, LoginDataSendAction action,
     _noInternet(store);
   }
 }
+
 void _noInternet(Store store){
   SharedPreferences _prefs = PrefsSingleton.prefs;
   String _language = _prefs.getString(PreferenceNames.language);
